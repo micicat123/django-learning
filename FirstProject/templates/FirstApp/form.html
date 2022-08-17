@@ -1,0 +1,15 @@
+{% extends "FirstApp/base.html" %}
+    {% block body_block %}
+        {% if registred %}
+            <h1>Thank you for registering!</h1>
+        {% else %}    
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ userForm.as_p }}
+                {{ userInfo.as_p }}
+
+                <input type="submit" value="Register"/>
+            </form>
+            <a href="{% url 'FirstApp' %}">Back to First App</a>
+        {% endif %}      
+    {% endblock %}    
